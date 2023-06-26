@@ -14,3 +14,11 @@
 
 5. DELETE
    Removes all current representations of the target resource given by a URL
+
+> Activate Vertualenv
+
+      /flask_tutorial/demo_flask/
+      . flask/bin/activate
+
+      /flask_tutorial/
+      python app_start.py

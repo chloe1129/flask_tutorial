@@ -1,4 +1,4 @@
-from flask import Flask, render_template,redirect, url_for
+from flask import Flask, render_template,redirect, url_for, request
 
 app = Flask(__name__)
 
@@ -25,7 +25,26 @@ def hello_user(name):
     if name == 'chloe':    
         return redirect(url_for('hello_chloe', chloe=name))
     else:
-        return redirect(url_for('guset', guset=name))
+        return redirect(url_for('guest', guest=name))
+    
+
+@app.route('/success/<name>')
+def success(name):
+    return 'welcome %s' %name
+    
+@app.route('/login', methods = ['POST', 'GET'])
+def login():
+    if request.method == 'POST':
+        user = request.form['nm']
+        return redirect(url_for('success', name = str(user)))
+    else:
+        user = request.args.get('nm')
+        return redirect(url_for('success', name = str(user)))
+    
+@app.route('/hello/<int:score>')
+def hello_name(score):
+    return render_template('hello.html', marks= score)
+
 
 if __name__ =='__main__':
     app.run()

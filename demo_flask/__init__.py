@@ -50,5 +50,9 @@ def result():
     dic = {'phy':50, 'chemi':60, 'maths': 70}
     return render_template('result.html', result = dic)
 
+@app.route('/func')
+def jsfunc():
+    return render_template('indexpage.html')
+
 if __name__ =='__main__':
     app.run()

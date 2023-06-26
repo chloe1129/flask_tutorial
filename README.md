@@ -22,3 +22,5 @@
 
       /flask_tutorial/
       python app_start.py
+
+      deactivate

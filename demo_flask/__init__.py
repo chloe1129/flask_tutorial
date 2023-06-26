@@ -45,6 +45,10 @@ def login():
 def hello_name(score):
     return render_template('hello.html', marks= score)
 
+@app.route('/result')
+def result():
+    dic = {'phy':50, 'chemi':60, 'maths': 70}
+    return render_template('result.html', result = dic)
 
 if __name__ =='__main__':
     app.run()
